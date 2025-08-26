@@ -1,0 +1,15 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../bundles/base
+  - ../../apps/cloudnative-pg
+  - ../../apps/keycloak-stack
+  - ../../apps/vault-secrets-operator
+  - ../../apps/vault-operator
+  - ../../apps/vault
+  - ../../apps/gitlab
+patches:
+  - path: patches.yaml
+  - path: ./patches/vault.yaml
+  - path: ./patches/keycloak-stack.yaml
